@@ -11,6 +11,12 @@ app.config(function ($routeProvider) {
 		.when('/stock/:id', {
 			templateUrl: 'details/details.html'
 		})
+		.when('/buy', {
+			templateUrl: 'pages/buy.html'
+		})
+		.when('/about', {
+			templateUrl: 'pages/about.html'
+		})
 		.otherwise({
 			redirectTo: '/hometab'
 		});
@@ -64,10 +70,8 @@ angular.module('home.container').controller('homeController', function ($scope, 
 
 	$scope.getStocks = function () {
 		stockService.getStocks(function (stocks) {
-			console.log(stocks);
 			$scope.stocks = stocks;
 		}, function (error) {
-			console.log(error);
 			$scope.message = "unable to fetch";
 		});
 	};
@@ -77,7 +81,6 @@ angular.module('home.container').controller('homeController', function ($scope, 
 	}, 60000);
 
 	$scope.fetchStocks = function () {
-		console.log('start');
 		$interval(function () {
 			$scope.getStocks();
 		}, 10000, 3);
@@ -91,9 +94,6 @@ angular.module('home.container').controller('homeController', function ($scope, 
 'use strict';
 
 angular.module('home.stock-service').service('stockService', function (http) {
-
-
-
 
 	//see my list in course Id search
 	this.getStocks = function (success, error) {
@@ -110,24 +110,7 @@ angular.module('home.stock-service').service('stockService', function (http) {
 			error(exception);
 		});
 	};
-
 });
-/**
- * Created by UJAYAH1 on 7/31/2016.
- */
-/**
- * Created by UJAYAH1 on 7/30/2016.
- */
-'use strict';
-
-angular.module('home.top-nav').directive('topNav', function ($templateCache) {
-	return {
-		restrict: 'E',
-		template: $templateCache.get('top-nav/top-nav.html'),
-		controller: function ($rootScope, $scope) {}
-	};
-});
-
 /**
  * Created by UJAYAH1 on 7/30/2016.
  */
@@ -144,7 +127,6 @@ angular.module('home.stock-item').directive('stockItem', function ($templateCach
 		},
 		template: $templateCache.get('stocks/stock-item.html'),
 		controller: function ($rootScope, $scope, $interval) {
-			console.log($scope.stock.code);
 			$scope.backgroundImg = ''
 			$scope.amzStockPrice = "70.8USD";
 
@@ -166,6 +148,30 @@ angular.module('home.stock-item').directive('stockItem', function ($templateCach
 			};
 		}
 	}
+});
+
+/**
+ * Created by UJAYAH1 on 7/31/2016.
+ */
+/**
+ * Created by UJAYAH1 on 7/30/2016.
+ */
+'use strict';
+
+angular.module('home.top-nav').directive('topNav', function ($templateCache) {
+	return {
+		restrict: 'E',
+		template: $templateCache.get('top-nav/top-nav.html'),
+		controller: function ($rootScope, $scope, $location, Session) {
+			$scope.click = function (path) {
+				$location.path(path);
+			};
+			$scope.signOut = function () {
+				Session.logout();
+				Session.redirectToLogin();
+			}
+		}
+	};
 });
 
 /**

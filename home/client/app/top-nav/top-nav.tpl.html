@@ -2,17 +2,20 @@
     <div class="col-md-12 top-line">
 
     </div>
-    <div class="col-md-1 menu-item">
+    <div class="col-md-1 menu-item" ng-click="click('/hometab')">
         Home
     </div>
-    <div class="col-md-1 menu-item">
+    <div class="col-md-1 menu-item" ng-click="click('/buy')">
         Buy
     </div>
-    <div class="col-md-1 menu-item">
+    <div class="col-md-1 menu-item" ng-click="click('/about')">
         About
     </div>
 
+
 </div>
 <div class="bottom-line col-md-12">
-
+    <div class="col-md-1 menu-item">
+        <button class="btn danger" ng-click="signOut()">Sign Out</button>
+    </div>
 </div>

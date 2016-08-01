@@ -7,8 +7,6 @@ angular.module('login.login-service').service('loginService', function(http){
 
     //see my list in course Id search
     this.validate = function (credentials,success, error) {
-        console.log("credentials--->");
-        console.log(credentials);
         var requestConfig = {
             url: "/login/validate",
             payLoad : credentials
@@ -26,8 +24,6 @@ angular.module('login.login-service').service('loginService', function(http){
 
     //see my list in course Id search
     this.sendHome = function (credentials,success, error) {
-        console.log("credentials--->");
-        console.log(credentials);
         var requestConfig = {
             url: "/home/validate",
             payLoad : credentials

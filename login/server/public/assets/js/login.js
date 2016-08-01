@@ -20,8 +20,6 @@ angular.module('login.login-service').service('loginService', function (http) {
 
 	//see my list in course Id search
 	this.validate = function (credentials, success, error) {
-		console.log("credentials--->");
-		console.log(credentials);
 		var requestConfig = {
 			url: "/login/validate",
 			payLoad: credentials
@@ -39,8 +37,6 @@ angular.module('login.login-service').service('loginService', function (http) {
 
 	//see my list in course Id search
 	this.sendHome = function (credentials, success, error) {
-		console.log("credentials--->");
-		console.log(credentials);
 		var requestConfig = {
 			url: "/home/validate",
 			payLoad: credentials
@@ -83,7 +79,6 @@ app.directive('login', function ($templateCache) {
 						$window.location.href = '/login';
 					}
 				}, function (error) {
-					console.log(error);
 					$scope.message = "unable to fetch";
 				});
 			};
@@ -100,7 +95,6 @@ app.directive('login', function ($templateCache) {
 						$window.location.href = '/login';
 					}
 				}, function (error) {
-					console.log(error);
 					$scope.message = "unable to fetch";
 				});
 			};
@@ -114,8 +108,6 @@ app.directive('login', function ($templateCache) {
 angular.module('login.utils').service('http', function ($q, $http, $rootScope) {
 
 	var httpRequest = function (url, method, payLoad, headers) {
-		console.log("---------------------------------->" + payLoad.username);
-		console.log("---------------------------------->" + payLoad.username);
 		var deferred = $q.defer();
 
 		var requestStart = new Date().getTime();

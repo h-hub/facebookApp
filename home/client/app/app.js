@@ -11,6 +11,12 @@ app.config(function ($routeProvider) {
         .when('/stock/:id', {
             templateUrl: 'details/details.html'
         })
+        .when('/buy', {
+            templateUrl: 'pages/buy.html'
+        })
+        .when('/about', {
+            templateUrl: 'pages/about.html'
+        })
         .otherwise({
             redirectTo: '/hometab'
         });

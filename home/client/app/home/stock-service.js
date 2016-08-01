@@ -5,9 +5,6 @@
 
 angular.module('home.stock-service').service('stockService', function(http){
 
-
-
-
     //see my list in course Id search
     this.getStocks = function (success, error) {
         var requestConfig = {
@@ -23,5 +20,4 @@ angular.module('home.stock-service').service('stockService', function(http){
             error(exception);
         });
     };
-
 });

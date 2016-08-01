@@ -45,8 +45,6 @@ module.exports = (function(){
         }
 
         var filePath = Path.join(this.basePath, 'public/bower_components/' + path + file);
-        console.log(filePath);
-
 
             Fs.stat(filePath, function(error) {
                 if (!error) {

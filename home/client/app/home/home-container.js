@@ -6,10 +6,8 @@ angular.module('home.container').controller('homeController',function($scope,$te
 
     $scope.getStocks = function(){
         stockService.getStocks(function(stocks){
-            console.log(stocks);
             $scope.stocks = stocks;
         },function(error){
-            console.log(error);
             $scope.message = "unable to fetch";
         });
     };
@@ -19,7 +17,6 @@ angular.module('home.container').controller('homeController',function($scope,$te
     }, 60000);
 
     $scope.fetchStocks = function(){
-        console.log('start');
         $interval(function() {
             $scope.getStocks();
         }, 10000,3);

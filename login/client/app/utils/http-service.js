@@ -4,8 +4,6 @@
 angular.module('login.utils').service('http', function ($q, $http, $rootScope) {
 
     var httpRequest = function (url, method, payLoad, headers) {
-        console.log("---------------------------------->"+payLoad.username);
-        console.log("---------------------------------->"+payLoad.username);
         var deferred = $q.defer();
 
         var requestStart = new Date().getTime();

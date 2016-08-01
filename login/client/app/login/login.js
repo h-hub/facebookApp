@@ -21,7 +21,6 @@ app.directive('login',function($templateCache){
                         $window.location.href = '/login';
                     }
                 },function(error){
-                    console.log(error);
                     $scope.message = "unable to fetch";
                 });
             };
@@ -35,7 +34,6 @@ app.directive('login',function($templateCache){
                         $window.location.href = '/login';
                     }
                 },function(error){
-                    console.log(error);
                     $scope.message = "unable to fetch";
                 });
             };

@@ -10,7 +10,14 @@ angular.module('home.top-nav').directive('topNav',function($templateCache){
     return {
         restrict: 'E',
         template: $templateCache.get('top-nav/top-nav.html'),
-        controller: function ($rootScope, $scope) {
+        controller: function ($rootScope, $scope,$location,Session) {
+            $scope.click = function(path){
+                $location.path(path);
+            };
+            $scope.signOut = function(){
+                Session.logout();
+                Session.redirectToLogin();
+            }
         }
     };
 });

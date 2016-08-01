@@ -23,6 +23,10 @@
 .bottom-line{
     height:30px;
 }
+.bottom-line div{
+    height:25px;
+    float:right;
+}
 
 .home{
     padding: 0;
@@ -54,7 +58,7 @@
 .stock-item .details{
     height:55px;
     padding: 10px 10px 0 10px;
-    font-size: 18px;
+    font-size: 13px;
 }
 .stock-item .more{
     height:55px;

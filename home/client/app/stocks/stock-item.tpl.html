@@ -6,7 +6,13 @@
            {{stock.name}}
     </div>
     <div class="details col-md-4">
-        {{stock.price}}
+        Price : {{stock.price}} |
+        Change :
+        <span ng-if="stock.prevPrice!=''">
+            {{(((stock.prevPrice - stock.price)/stock.price) * 100).toFixed(1)}} %
+        </span>
+        <span ng-if="stock.prevPrice==''">None</span>
+
     </div>
     <div class="more col-md-2">
         <a class="btn" href="#stock/{{stock.id}}">More</a>

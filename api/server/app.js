@@ -12,41 +12,50 @@ var Http = Framework.HttpSelector;
 var Config = Framework.Config;
 var Logger = Framework.Logger;
 
+var intermediateStocks = [];
+var prevStocks = [];
+var firstTime = true;
+
+var first = [];
+var second = [];
 
 var api = express();
 var stocks = [];
 setInterval(function(){
-    /// call your function here
-    console.log("seconds");
     stocks = [{
         id : '1',
         code : 'amz',
         name : 'Amazon',
-        price : Math.floor((Math.random() * 500) + 50)
+        price : Math.floor((Math.random() * 500) + 50),
+        prevPrice :""
     },
         {
             id : '2',
             code : 'fb',
             name : 'Facebook',
-            price : Math.floor((Math.random() * 500) + 50)
+            price : Math.floor((Math.random() * 500) + 50),
+            prevPrice:""
         },
         {
             id : '3',
             code : 'yh',
             name : 'Yahoo',
-            price : Math.floor((Math.random() * 500) + 50)
+            price : Math.floor((Math.random() * 500) + 50),
+            prevPrice:""
         },
         {
             id : '4',
             code : 'hp',
             name : 'HP',
-            price : Math.floor((Math.random() * 500) + 50)
+            price : Math.floor((Math.random() * 500) + 50),
+            prevPrice:""
         },
         {
             id : '5',
             code : 'ik',
             name : 'Ikea',
-            price : Math.floor((Math.random() * 500) + 50)
+            price : Math.floor((Math.random() * 500) + 50),
+            prevPrice:""
         }];
 }, 1000);
 
@@ -68,12 +77,19 @@ api.get('/', function(req, res, next){
 });
 
 api.get('/getStocks', function(req, res) {
+    first = second.slice();
+    second = stocks.slice();
+    if(first.length !== 0){
+        for(var key in stocks)
+        {
+            stocks[key].prevPrice = first[key].price;
+        }
+    }
     res.send(stocks);
 });
 
 api.get('/getPrevStocks', function(req, res) {
-    var prevStocks = stocks.slice();
-    res.send(stocks);
+    res.send(first);
 });
 
 api.locals.attributes = {
@@ -81,5 +97,4 @@ api.locals.attributes = {
     version: plugin.version,
     prefix: plugin.prefix
 };
-console.log(plugin.prefix+"------");
 module.exports = api;

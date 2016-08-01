@@ -14,7 +14,6 @@ angular.module('home.stock-item').directive('stockItem',function($templateCache)
         },
         template: $templateCache.get('stocks/stock-item.html'),
         controller: function ($rootScope, $scope, $interval) {
-            console.log($scope.stock.code);
             $scope.backgroundImg = ''
             $scope.amzStockPrice = "70.8USD";
 
