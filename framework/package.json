@@ -1,0 +1,14 @@
+{
+  "name": "framework",
+  "version": "1.0.0",
+  "description": "framework",
+  "main": "app.js",
+  "author": "harsha",
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+    "bunyan": "^1.8.1",
+    "extend": "^3.0.0"
+  }
+}

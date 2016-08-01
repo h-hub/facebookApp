@@ -1,0 +1,33 @@
+{
+  "application" : {
+    "name" : "HE-Portal ND"
+  },
+  "marketRegions" : {
+    "US" : {
+      "name" : "US",
+      "countries" : ["US", "CA", "KY", "BS", "BM"],
+      "marketCode" : 1
+    },
+    "AUSTRALIA" : {
+      "name" : "AUSTRALIA",
+      "countries" : ["AU", "NZ"],
+      "marketCode" : 5
+    },
+    "ME" : {
+      "name" : "ME",
+      "countries" : ["AE", "SA", "QA", "EG", "KW", "OM", "BH", "LB", "SY", "IQ", "JO", "TR", "YE"],
+      "marketCode" : 4
+    },
+    "NON_US" : {
+      "name" : "NON_US",
+      "countries" : [],
+      "marketCode" : [2, 3, 6, 7, 8, 9]
+    }
+  },
+  "courseItemsPerPage" : 50,
+  "paginationIndexesToShow" : 5,
+  "brodcastAnnouncements" : {
+    "requestCount" : 20,
+    "displayCount" : 3
+  }
+}

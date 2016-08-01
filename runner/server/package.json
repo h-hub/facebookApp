@@ -1,0 +1,22 @@
+{
+  "name": "workflowApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "postinstall": "",
+    "postupdate": ""
+  },
+  "author": "harsha",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "compression": "^1.6.1",
+    "express": "^4.13.4",
+    "handlebars": "2.0.0",
+    "jade": "1.11.0",
+    "request": "^2.65.0",
+    "url": "^0.11.0"
+  }
+}

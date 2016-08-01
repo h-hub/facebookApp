@@ -1,0 +1,24 @@
+{
+  "name": "home",
+  "version": "1.0.0",
+  "plugin": "home",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "postinstall": "",
+    "postupdate": ""
+  },
+  "author": "harsha",
+  "license": "ISC",
+  "devDependencies": {
+    "compression": "^1.6.1",
+    "express": "^4.13.4",
+    "url": "^0.11.0",
+    "hapi": "8.6.1",
+    "handlebars": "2.0.0",
+    "node-cache": "3.2.1",
+    "request": "2.65.0",
+    "cookie-parser" : "1.4.3"
+  }
+}

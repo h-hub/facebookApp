@@ -1,0 +1,192 @@
+{
+  "server": {
+    "protocol": "http",
+    "host": "0.0.0.0",
+    "port": "8080",
+    "hostUrl": "dev.hepins.pearsoncmg.com:8080",
+    "maxSockets": "Infinity",
+    "payloadTimeout": 4000,
+    "socketTimeout": 5000
+  },
+  "package": {
+    "version": "1.2.18"
+  },
+  "plugins": {
+    "folderPath": "../../apps",
+    "apps": [
+      {
+        "name": "login",
+        "version": "1.2.11",
+        "prefix": "/login"
+      },
+      {
+        "name": "home",
+        "version": "1.2.13",
+        "prefix": "/home"
+      },
+      {
+        "name": "api",
+        "version": "1.2.8",
+        "prefix": "/api"
+      }
+    ]
+  },
+  "logging": {
+    "product": "MMND",
+    "application": "He Portal",
+    "component": "UI",
+    "environment": "Development",
+    "errorFile": "activity-tracker/error.log",
+    "infoFile": "activity-tracker/info.log"
+  },
+  "akamai": {
+    "enable": false,
+    "cacheMaxAge": 2000
+  },
+  "sms": {
+    "url": "http://login.cert.pearsoncmg.com",
+    "siteId": "6997"
+  },
+  "cookie": {
+    "ttl": 7200000
+  },
+  "portalApi": {
+    "protocol": "http",
+    "host": "10.52.80.33",
+    "port": "3000",
+    "hostUrl": "10.52.80.33:3000"
+  },
+  "catelogApi": "http://cert.catalog.pearsoncmg.com/catalog/ws/catalog-ws-v8",
+  "materialSearch": {
+    "courseProviderId": "cp05",
+    "searchCriterias": [
+      "TITLE",
+      "ISBN",
+      "SERIES",
+      "DISCIPLINE",
+      "AUTHOR",
+      "HIDDEN"
+    ],
+    "imprintId": "65"
+  },
+  "serviceTimeOuts": {
+    "rest": "60000",
+    "soap": "60000"
+  },
+  "linkUrls": {
+    "forgotPasswordLink": "https://register.cert.pearsoncmg.com/forgotlogin/forgotLogin.fl",
+    "statusUrl": "http://247pearsoned.custhelp.com/app/answers/detail/a_id/9205",
+    "marketingBaseUrl": "http://cert-ccndweb.pearsoncmg.com",
+    "renewInstructorSubscriptionUrl": "https://register.cert.pearsoncmg.com/register/reg1.jsp",
+    "termsAndConditionsUrl": "https://register.pearsoncmg.com/reg/include/license2.jsp"
+  },
+  "e2eInAppsCom": {
+    "url": "e2e-comms-dev.pearson.com",
+    "prodctName": "mymathlab,mystatlab,myitlab,myeconlab,myaccountinglab,mypsychlab,mywritinglab,myfinancelab,myreadinglab,myhistorylab,mycommunicationlab,mypoliscilab,mysoclab,myomlab,myartslab,mymanagementlab,mystudentsuccesslab,myskillslab,mymarketinglab,mynursinglab,mysearchlab,mygraphicslab,mymedicalterminologylab,mymislab,mymusiclab,mybizlab,mydevelopmentlab,modifiedmasteringaandp,modifiedmasteringastronomy,modifiedmasteringbiology,modifiedmasteringchemistry,modifiedmasteringcomputerscience,modifiedmasteringengineering,modifiedmasteringenvironmentalscience,modifiedmasteringgenetics,modifiedmasteringgeography,modifiedmasteringgeology,modifiedmasteringhealth,modifiedmasteringmeteorology,modifiedmasteringmicrobiology,modifiedmasteringnutrition,modifiedmasteringoceanography,modifiedmasteringphysics"
+  },
+  "rosterUrl": "https://cert.courseadmin.he.pearsoncmg.com/console/",
+  "handoutFilePath": "F:/download",
+  "courseTempAccessUrl": "https://cert-ccndweb.pearsoncmg.com/students/register?",
+  "courseTimeBaseAccessUrl": "https://cert-registration.mypearson.com/#",
+  "courseAlternativeLaunchUrl": "http://www.pearsonmylabandmastering.com/altsignins/",
+  "courseEbookExtensionUrl": "http://cert.pearsonmylab.pearsoncmg.com/etextbookoffers",
+  "courseEnrollUrl": "https://cert-ccndweb.pearsoncmg.com/students/register?siteid=",
+  "foundationPortalUrl": "http://foundation-portaltest.pearsoncmg.com/portal/render.userLayoutRootNode.uP?key=",
+  "appDynamics": {
+    "enable": false,
+    "controllerHostName": "pearson.saas.appdynamics.com",
+    "controllerPort": 80,
+    "controllerSslEnabled": false,
+    "accountName": "pearson",
+    "accountAccessKey": "36056eea1b24",
+    "applicationName": "BOS03_MMND_Staging",
+    "tierName": "HE-PortalRD-app",
+    "proxyAutolaunchDisabled": true,
+    "proxyCtrlDir": "/export/home/portal/appD/proxy",
+    "debug": true,
+    "maxProcessSnapshotsPerPeriod": 0
+  },
+  "sharedComponents": {
+    "footer": {
+      "pearsonEducation": "http://www.pearsoned.com/",
+      "licenceAgreemnts": "https://register.pearsoncmg.com/reg/include/license2.jsp",
+      "privacyPolicy": "https://register.cert.pearsoncmg.com/w3c/Pearson%20Education%20Privacy%20Policy.htm",
+      "permissions": "http://www.pearsoned.com/permissions/",
+      "contactUs": "https://support.pearson.com/getsupport"
+    },
+    "topNav": {
+      "helpLink": "http://www.pearsonmylabandmastering.com/students/support/",
+      "smsAccountProfileUrl": "https://register.cert.pearsoncmg.com/userprofile/up_login.jsp?loginname=",
+      "ssoServletUrl": "http://login.cert.pearsoncmg.com/sso/SSOServlet2?cmd=logout&okurl=",
+      "logoutRoute": "/login/logout?key=",
+      "helpLinks": {
+        "student": [
+          {
+            "optionHint": "help",
+            "optionName": "Student Support",
+            "optionLink": "http://www.pearsonmylabandmastering.com/students/support/index.html"
+          },
+          {
+            "optionHint": "whatsNew",
+            "optionName": "What's New",
+            "optionLink": ""
+          }
+        ],
+        "instructor": [
+          {
+            "optionHint": "help",
+            "optionName": "Instructor Help",
+            "optionLink": {
+              "default": "http://help.pearsoncmg.com/myp/myp_instr/myp_instr.htm",
+              "createCourse": "http://help.pearsoncmg.com/myp/myp_instr/myp_instr.htm#cshid=create_or_copy_a_course_myp",
+              "catelogSearch": "http://help.pearsoncmg.com/myp/myp_instr/myp_instr.htm#cshid=select_course_materials_myp",
+              "courseIdSearch": "http://help.pearsoncmg.com/myp/myp_instr/myp_instr.htm#cshid=search_existing_courses",
+              "enterCourseDetails": "http://help.pearsoncmg.com/myp/myp_instr/myp_instr.htm#cshid=enter_course_information_myp",
+              "youAreDone": "http://help.pearsoncmg.com/myp/myp_instr/myp_instr.htm#cshid=confirmation_myp",
+              "seeMyList": "http://help.pearsoncmg.com/myp/myp_instr/myp_instr.htm#cshid=search_existing_courses",
+              "newEdition": "http://help.pearsoncmg.com/myp/myp_instr/myp_instr.htm#cshid=copy_new_materials",
+              "newVersion": "http://help.pearsoncmg.com/myp/myp_instr/myp_instr.htm#cshid=copy_new_materials",
+              "insturctorCourseNestedView": "http://help.pearsoncmg.com/myp/myp_instr/myp_instr.htm#cshid=instructor_courses",
+              "coordinatorCourseNestedView": "http://help.pearsoncmg.com/myp/myp_instr/myp_instr.htm#cshid=coordinator_courses",
+              "externalExit": "",
+              "externalSearch" : "http://help.pearsoncmg.com/myp/myp_instr/Content/CSH_only/lms_copy_course_myp.htm?cshid=lms_copy_course"
+            }
+          },
+          {
+            "optionHint": "support",
+            "optionName": "Instructor Support",
+            "optionLink": "http://www.pearsonmylabandmastering.com/educators/support/index.html"
+          },
+          {
+            "optionHint": "whatsNew",
+            "optionName": "What's New",
+            "optionLink": ""
+          }
+        ]
+      },
+      "whatsNew": {
+        "enable": true,
+        "delay" : 3000,
+        "restrict": {
+          "roles": [],
+          "deviceAgents": null,
+          "minResolution": 300
+        },
+        "studentUrl": "https://media.pearsoncmg.com/cmg/Creative/HEd/Product/MLM/Portal_Student_Fall2016/index.html",
+        "instructorUrl": "https://media.pearsoncmg.com/cmg/Creative/HEd/Product/MLM/Portal_Instructor_Fall2016/index.html"
+      }
+    },
+    "chsLinks": {
+      "homeEnrollmentButtonInfotip": "http://help.pearsoncmg.com/myp/myp_instr/myp_instr.htm#cshid=enrollment_myp",
+      "homeEnrollmentCourseCardLink": "http://help.pearsoncmg.com/myp/myp_instr/myp_instr.htm#cshid=how_students_enroll_myp",
+      "searchExistingCourses": "http://help.pearsoncmg.com/myp/myp_instr/myp_instr.htm#cshid=search_existing_courses",
+      "enrollStudentsUrl": "http://help.pearsoncmg.com/myp/myp_instr/myp_instr.htm#cshid=how_students_enroll_myp"
+    }
+  },
+  "provider": {
+    "tokenSalt": "external_system_to_portal",
+    "encodeNumber": "163284",
+    "tokenTimeout": "20"
+  },
+  "modifiedMasteringUrl": "http://mediadev.pearsoncmg.com/portal/learn_more.html"
+}

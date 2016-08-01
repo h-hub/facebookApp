@@ -1,0 +1,34 @@
+//
+   Created by UJAYAH1 on 7/30/2016.
+//   Created by UJAYAH1 on 7/27/2016.
+doctype html
+html(lang="en", ng-app="login")
+    head
+        title= pageTitle
+
+        script.
+            var serviceVars = {
+                package: {
+                    version: #{package.version}
+                },
+                runner: {
+                    version: #{runner.version}
+                }
+            };
+
+        link(href='vendor/bootstrap/#{runner.version}/css/bootstrap.min.css', rel='stylesheet')
+        link(href='login/static/#{runner.version}/css/layout.min.css', rel='stylesheet')
+
+
+    body
+        login
+
+
+        script(src="vendor/bootstrap/#{runner.version}/js/jquery.min.js")
+        script(src="vendor/bootstrap/#{runner.version}/js/angular.min.js")
+        script(src="vendor/bootstrap/#{runner.version}/js/angular-animate.min.js")
+        script(src="vendor/bootstrap/#{runner.version}/js/angular-route.min.js")
+        script(src="vendor/bootstrap/#{runner.version}/js/bootstrap.min.js")
+
+        script(src="login/static/#{runner.version}/js/login.min.js")
+        script(src="login/static/#{runner.version}/templates/templates.min.js")

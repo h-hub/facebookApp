@@ -1,0 +1,20 @@
+{
+  "name": "home.build",
+  "description": "",
+  "main": "index.html",
+  "license": "ISC",
+  "moduleType": [
+    "node"
+  ],
+  "login": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+
+  }
+}
