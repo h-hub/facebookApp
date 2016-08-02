@@ -1,19 +1,56 @@
 # workflowApp
 
-How to run
+# How to Run
 
-1. go to runner/server and run "npm install".
-2. go to runner/build and run these commands  "npm install" and "gulp publish"
-3. go to login/server and run "npm install"
-4. go to login/build-files and run "npm install", "bower install","gulp  release" and "gulp publish"
-5. go to home/server and run "npm install"
-6. go to home/build-files and run "npm install" and "gulp publish"
-7. got to framework and run "npm install"
-8. got to api/server and run "npm install
-9. got to api/build-files and run "npm install" and "gulp publish"
-10. as the last step go to runner/server and run "node app"
-11. And visit "http://localhost:3000/login"
-
+Go to the mentioned folders tun the commands.
+  - runner/build file
+```sh
+$ npm install
+$ bower install
+give "5" as the answer
+$ gulp release
+$ gulp build
+$ gulp publish
+```
+ - runner/server
+```sh
+$ npm install
+```
+- login/build_files
+```sh
+$ npm install
+$ gulp publish
+```
+ - login/server
+```sh
+$ npm install
+```
+ - home/build_files
+```sh
+$ npm install
+$ gulp publish
+```
+ - home/server
+```sh
+$ npm install
+```
+ - framework
+```sh
+$ npm install
+```
+ - api/build_files
+```sh
+$ npm install
+$ gulp publish
+```
+ - api/server
+```sh
+$ npm install
+```
+ - runner/server
+```sh
+$ node app
+```	
 Users
 
 1. "email" : "john@gmail.com","password" : "john123"
