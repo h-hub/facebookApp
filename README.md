@@ -15,6 +15,7 @@ How to run
 11. And visit "http://localhost:3000/login"
 
 Users
+
 1. "email" : "john@gmail.com","password" : "john123"
 2. "email" : "victor@gmail.com", "password" : "victor123"
 
