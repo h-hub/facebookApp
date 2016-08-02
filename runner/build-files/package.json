@@ -35,7 +35,6 @@
   },
   "dependencies": {
     "express": "^4.13.4",
-    "hapi": "8.6.1",
     "merge-stream": "^1.0.0"
   }
 }
