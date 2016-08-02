@@ -6,4 +6,5 @@ npm-debug.log
 foo.log
 apps
 home/server/public
-home/server/node_modules
+login/server/public
+
