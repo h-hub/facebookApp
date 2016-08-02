@@ -51,6 +51,13 @@ $ npm install
 ```sh
 $ node app
 ```	
+
+> After running the last command, this message will be shown in the terminal: 
+```sh
+$ app listening on port 3000!
+```
+> That means the app in running without errors. Visit http://localhost:3000/login to go to the home page. Use the below users to login.
+
 Users
 
 1. "email" : "john@gmail.com","password" : "john123"
