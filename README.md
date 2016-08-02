@@ -14,4 +14,9 @@ How to run
 10. as the last step go to runner/server and run "node app"
 11. And visit "http://localhost:3000/login"
 
+Users
+1. "email" : "john@gmail.com","password" : "john123"
+2. "email" : "victor@gmail.com", "password" : "victor123"
+
+
 NOTE : I only had limited time to test the app. If you face any dificulties while setting this up. Please email harsha.kj89@gmail.com or call +94714653658
