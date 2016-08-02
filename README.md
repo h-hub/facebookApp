@@ -12,5 +12,6 @@ How to run
 8. got to api/server and run "npm install
 9. got to api/build-files and run "npm install" and "gulp publish"
 10. as the last step go to runner/server and run "node app"
+11. And visit "http://localhost:3000/login"
 
 NOTE : I only had limited time to test the app. If you face any dificulties while setting this up. Please email harsha.kj89@gmail.com or call +94714653658
