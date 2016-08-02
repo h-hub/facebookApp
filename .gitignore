@@ -5,4 +5,5 @@ npm-debug.log
 .idea
 foo.log
 apps
-
+home/server/public
+home/server/node_modules
