@@ -1,4 +1,7 @@
-# workflowApp
+# Stock Market (workflowApp)
+
+# About
+This is a Webapp which was build using Angularjs and Nodejs and the requirments are mentioned in the Requirments.pdf. This applications is ready to deploy in a production environment.
 
 # How to Run
 
