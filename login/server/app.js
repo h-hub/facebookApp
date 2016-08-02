@@ -1,12 +1,9 @@
 /**
- * Created by UJAYAH1 on 7/28/2016.
+ * Created by harsha.kj89@gmail.com on 7/28/2016.
  */
 var express = require('express');
-
 var path = require('path');
-var urlParser = require('url');
 var pkg = require('./package.json');
-var querystring = require('querystring');
 var Framework = require('framework');
 var Http = Framework.HttpSelector;
 var Config = Framework.Config;
@@ -25,9 +22,7 @@ var plugin = (function () {
             return apps[i];
         }
     }
-
     throw 'Unable to find configurations for home module';
-
 })();
 
 var assetsConfig = {
@@ -37,6 +32,7 @@ var assetsConfig = {
 
 var AssetsHandler = new Framework.StaticFileHandler(assetsConfig);
 
+//validate user with username and password
 function validateUser(credentials){
     var username = credentials.username;
     var password = credentials.password;
@@ -49,7 +45,6 @@ function validateUser(credentials){
 
     }
     return false;
-
 };
 
 loginApp.set('views', path.join(__dirname, 'views'));

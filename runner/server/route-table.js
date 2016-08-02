@@ -9,7 +9,7 @@ module.exports = (function () {
     var server;
 
     function registerIndex(){
-        server.get('/index', function(req, res, next){
+        server.get('/index', function(req, res){
             res.render('page');
         });
     }
@@ -22,15 +22,55 @@ module.exports = (function () {
 
     function registerInstrumentation() {
 
+        server.post('/log/instrumentation', function(req, res){
+                try{
+                    if (req.payload) {
+                        var info = req.payload;
+
+                        Logger.info({
+                            req: req,
+                            body: info
+                        });
+                    }
+                }catch(exception){
+                    console.log('Error saving instrumentation', exception);
+                }
+
+                res.send({
+                    "code" : 200,
+                    "status" : "success",
+                    "data" : null
+                }).type('application/json;');
+        });
     }
 
     function registerErrorLog() {
 
-    }
+        server.post('/log/error', function(req, res){
+            try{
+                if (req.payload) {
+                    var info = req.payload;
+
+                    Logger.info({
+                        req: req,
+                        body: info
+                    });
+                }
+            }catch(exception){
+                console.log('Error saving error', exception);
+            }
+
+            res.set({
+                "code" : 200,
+                "status" : "success",
+                "data" : null
+            });
+        });
+    };
 
     function registerAuthentication(){
 
-    }
+    };
 
     function registerStaticFileHandlers() {
         var assetsConfig = {
@@ -40,22 +80,6 @@ module.exports = (function () {
 
         var AssetsHandler = new Framework.StaticFileHandler(assetsConfig);
 
-        //server.route({
-        //    method: "GET",
-        //    path: "/static/{version}/{folder}/{file}",
-        //    handler: function (request, reply) {
-        //        AssetsHandler.staticFileHandler.call(AssetsHandler, request, reply);
-        //    }
-        //});
-        //
-        //server.route({
-        //    method: "GET",
-        //    path: "/shared/static/{version}/{path*}",
-        //    handler: function (request, reply) {
-        //        AssetsHandler.sharedFileHandler.call(AssetsHandler, request, reply);
-        //    }
-        //});
-
         server.use('/static/:version/:folder/:file', function (req, res) {
             AssetsHandler.staticFileHandler.call(AssetsHandler, req, res);
         });
@@ -63,7 +87,7 @@ module.exports = (function () {
         server.use('/vendor/:components/:version/:path*', function (req, res) {
             AssetsHandler.vendorFileHandler.call(AssetsHandler, req, res);
         });
-    }
+    };
 
     function register(expressApp){
         server = expressApp;
@@ -78,7 +102,7 @@ module.exports = (function () {
         registerErrorLog();
         registerAuthentication();
         registerStaticFileHandlers();
-    }
+    };
 
     return {
         registerAllRoutes: register

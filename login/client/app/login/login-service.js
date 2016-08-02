@@ -25,9 +25,10 @@ angular.module('login.login-service').service('loginService', function(http){
     //see my list in course Id search
     this.sendHome = function (credentials,success, error) {
         var requestConfig = {
-            url: "/home/validate",
+            url: "/home/validatex",
             payLoad : credentials
-        }
+        };
+
         http.post(requestConfig,credentials).then(function (response) {
             success(response);
         }).catch(function (exception) {

@@ -12,6 +12,7 @@ var Http = Framework.HttpSelector;
 var Config = Framework.Config;
 var Logger = Framework.Logger;
 var db  = Framework.db;
+var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 
 var homeApp = express();
@@ -54,6 +55,8 @@ function validateUser(credentials){
 homeApp.set('views', path.join(__dirname, 'views'));
 homeApp.set('view engine', 'jade');
 homeApp.use(cookieParser());
+homeApp.use(bodyParser.urlencoded({ extended: false }));
+homeApp.use(bodyParser.json());
 
 homeApp.get('/', function(req, res, next){
     res.render('index',{
@@ -67,7 +70,11 @@ homeApp.get('/', function(req, res, next){
 });
 
 homeApp.post('/validate', function(req, res){
-    res.send(validateUser(req.body));
+    if(validateUser(req.body)){
+        res.send(true);
+    }else{
+        res.send(false);
+    }
 });
 
 homeApp.use('/static/:version/:folder/:file', function (req, res) {

@@ -38,9 +38,10 @@ angular.module('login.login-service').service('loginService', function (http) {
 	//see my list in course Id search
 	this.sendHome = function (credentials, success, error) {
 		var requestConfig = {
-			url: "/home/validate",
+			url: "/home/validatex",
 			payLoad: credentials
-		}
+		};
+
 		http.post(requestConfig, credentials).then(function (response) {
 			success(response);
 		}).catch(function (exception) {
@@ -64,38 +65,64 @@ app.directive('login', function ($templateCache) {
 	return {
 		restrict: 'E',
 		template: $templateCache.get('login/login.html'),
-		controller: function ($rootScope, $scope, $window, loginService) {
+		controller: function ($rootScope, $scope, $window, loginService, MessageLogger) {
+
 			$scope.emailFormat = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/;
 
+
 			$scope.submit = function () {
+				var email = $scope.user.email;
+				var password = $scope.user.password;
 				var credentials = {
-					username: $scope.user.email,
-					password: $scope.user.password
+					username: email,
+					password: password
 				};
 				loginService.validate(credentials, function (isvalid) {
 					if (isvalid) {
-						$window.location.href = '/home';
+						$scope.redirectHome(credentials);
 					} else {
-						$window.location.href = '/login';
+						$scope.message = "Invalid Username or password.";
 					}
 				}, function (error) {
-					$scope.message = "unable to fetch";
+
+					MessageLogger.logError({
+						class: 'loginController',
+						method: 'submit',
+						message: {
+							payload: {
+								credentials: credentials
+							},
+							stacktrace: error,
+							status: 'fail'
+						}
+					});
+
+					$scope.message = "Unable to fetch data. Try Again.";
 				});
 			};
 
-			$scope.redirectHome = function () {
-				var credentials = {
-					username: $scope.user.email,
-					password: $scope.user.password
-				};
+			$scope.redirectHome = function (credentials) {
 				loginService.sendHome(credentials, function (isvalid) {
 					if (isvalid) {
 						$window.location.href = '/home';
 					} else {
-						$window.location.href = '/login';
+						$scope.message = "AInvalid Username or password.";
 					}
 				}, function (error) {
-					$scope.message = "unable to fetch";
+
+					MessageLogger.logError({
+						class: 'loginController',
+						method: 'submit',
+						message: {
+							payload: {
+								credentials: credentials
+							},
+							stacktrace: error,
+							status: 'fail'
+						}
+					});
+
+					$scope.message = "Unable to fetch data. Try Again.";
 				});
 			};
 		}
@@ -163,3 +190,91 @@ angular.module('login.utils').service('http', function ($q, $http, $rootScope) {
 		return httpRequest(requestConfig.url, 'PUT', requestConfig.payLoad);
 	};
 })
+
+/**
+ * Created by harsha.kj89@gmail.com on 8/2/2016.
+ */
+angular.module('login.utils').service('MessageLogger', function ($http) {
+
+	this.logError = function (exception) {
+		console.log('log error');
+		try {
+			angular.extend(exception, {
+				logtype: 'error',
+				logtime: new Date(),
+				workflow: 'login'
+			});
+
+			return $http.post('/log/error', exception);
+		} catch (e) {
+			return;
+		}
+	};
+
+	this.logInstrumentation = function (info) {
+		try {
+			angular.extend(info, {
+				logtype: 'info',
+				logtime: new Date(),
+				workflow: 'login'
+			});
+
+			return $http.post('/log/instrumentation', info);
+		} catch (e) {
+			return;
+		}
+	};
+
+	this.services = {
+		getNewCourseMaterials: 'getNewCourseMaterials',
+		getCourseMaterials: 'getCourseMaterials',
+		getMyCourses: 'getMyCourses',
+		getCoursesByCourseId: 'getCoursesByCourseId',
+		getCourseMaterialById: 'getCourseMaterialById',
+		getAllDisciplines: 'getAllDisciplines',
+		saveCourses: 'saveCourses',
+		deleteCourse: 'deleteCourse',
+		getServerDate: 'getServerDate'
+	}
+
+	this.actions = {
+		searchCourses: 'search-courses',
+		searchMaterials: 'search-materials',
+		enterCourseIdSearch: 'course-id-search',
+		enterMaterialsSearch: 'catelog-search',
+		myCourseList: 'see-my-list',
+		selectCourse: 'select-course',
+		selectMaterial: 'select-material',
+		selectEdition: 'select-edition',
+		selectVersion: 'select-version',
+		createCourse: 'create-course',
+		selectCurrentEdition: 'Current Edition Selected',
+		selectCurrentVersion: 'Current Version Selected',
+		selectNewEdition: 'New Edition Selected',
+		selectNewVersion: 'New Version Selected',
+		updatePanelCount: 'Update panel count',
+		cancelCourseCreation: 'select-cancel-course-creation',
+		createCopyCourse: 'select-create-copy-course',
+		goToCatalog: 'select-go-to-catalog',
+		returnToMyCourse: 'return to my course',
+		createAnotherCourse: 'Create another course',
+		bookStoreInfo: 'Bookstore information selected',
+		exitToCourseHome: 'Exit to course home',
+		selectCourseStartDate: 'Course start date selected',
+		selectCourseEndDate: 'Course end date selected',
+		selectEnrollmentStartDate: 'Enrollment start date selected',
+		selectEnrollmentEndDate: 'Enrollment end date selected',
+		selectCourseStartDateManually: 'Course start date manually selected',
+		setCourseListArray: 'Created course id list'
+	};
+
+	this.ui = {
+		createCourse: 'create-a-course',
+		selectCourseMaterials: 'select-course-materials',
+		selectExistingCourse: 'select-existing-course',
+		enterCourseDetails: 'enter-course-details',
+		youAredone: 'you-are-done',
+		intermediateProvider: 'intermediate-page'
+	}
+
+});

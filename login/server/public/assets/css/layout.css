@@ -58,3 +58,7 @@ body, html {
 .login .login-box h3{
     text-align: center;
 }
+.login .warning{
+    color:red;
+    font-size: 13px;
+}
