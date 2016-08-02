@@ -5,7 +5,7 @@ This is a Webapp which was build using Angularjs and Nodejs and the requirments 
 
 # How to Run
 
-Go to the mentioned folders tun the commands.
+Go to the mentioned folders run the commands.
   - runner/build file
 ```sh
 $ npm install
