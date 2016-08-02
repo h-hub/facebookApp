@@ -1,5 +1,5 @@
 /**
- * Created by harsha on 7/28/2016.
+ * Created by harsha.kj89@gmail.com on 7/28/2016.
  */
 var Framework = require('framework');
 var Config = Framework.Config;
@@ -9,16 +9,19 @@ module.exports = (function () {
     var server;
 
     function registerIndex(){
-        server.get('/index', function(req, res){
-            res.render('page');
+        server.get('/', function(req, res){
+            res.redirect('/login');
         });
-    }
+    };
 
     function registerStatusCheck(){
         server.get('/status', function(req, res, next){
-            res.send('server is working fine');
+            res.send({
+                code :200,
+                status : 'Server is up and running'
+            });
         });
-    }
+    };
 
     function registerInstrumentation() {
 
@@ -42,7 +45,7 @@ module.exports = (function () {
                     "data" : null
                 }).type('application/json;');
         });
-    }
+    };
 
     function registerErrorLog() {
 
@@ -68,9 +71,6 @@ module.exports = (function () {
         });
     };
 
-    function registerAuthentication(){
-
-    };
 
     function registerStaticFileHandlers() {
         var assetsConfig = {
@@ -100,7 +100,6 @@ module.exports = (function () {
         registerStatusCheck();
         registerInstrumentation();
         registerErrorLog();
-        registerAuthentication();
         registerStaticFileHandlers();
     };
 
