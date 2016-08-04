@@ -1,5 +1,5 @@
 /**
- * Created by UJAYAH1 on 7/30/2016.
+ * Created by harsha.kj89@gmail.com on 7/30/2016.
  */
 angular.module('home.container',[]);
 angular.module('home.top-nav',[]);

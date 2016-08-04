@@ -3,12 +3,34 @@
     {
       "id" : "1",
       "email" : "john@gmail.com",
-      "password" : "john123"
+      "password" : "john123",
+      "stocks" : []
     },
     {
       "id" : "2",
       "email" : "victor@gmail.com",
-      "password" : "victor123"
+      "password" : "victor123",
+      "stocks" : []
+    },
+    {
+      "id" : "3",
+      "email" : "edgar@gmail.com",
+      "password" : "edgar123",
+      "stocks" : []
+    },
+    {
+      "id" : "2",
+      "email" : "sam@gmail.com",
+      "password" : "sam123",
+      "stocks" : []
+    },
+    {
+      "id" : "2",
+      "email" : "emily@gmail.com",
+      "password" : "emily123",
+      "stocks" : []
     }
   ]
+
+
 }

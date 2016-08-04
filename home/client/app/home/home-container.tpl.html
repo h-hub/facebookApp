@@ -1,6 +1,9 @@
 <div ng-controller="homeController" class="home col-md-12" ng-init="getStocks()">
-    <div ng-repeat="stock in stocks">
-        <stock-item stock="stock" prevStock=""><stock-item/>
+    <div class="col-md-12 btns">
+        <button class="btn glyphicon {{btnClass}}" ng-click="toggleOrder()"></button>
     </div>
-
+    <div style="clear:both"></div>
+    <div ng-repeat="stock in stocks | orderBy:orderByString">
+        <stock-item stock="stock"><stock-item/>
+    </div>
 </div>

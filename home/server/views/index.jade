@@ -4,15 +4,15 @@
 doctype html
 html(lang="en", ng-app="home")
     head
-        title= pageTitle
+        title= StockMarket
 
         script.
             var serviceVars = {
                 package: {
-                    version: #{package.version}
+                    version: '#{package.version}'
                 },
                 runner: {
-                    version: #{runner.version}
+                    version: '#{runner.version}'
                 }
             };
 
@@ -23,7 +23,6 @@ html(lang="en", ng-app="home")
     body(ng-controller='SessionController')
         top-nav
         ng-view
-        home-container
 
         script(src="vendor/bootstrap/#{runner.version}/js/jquery.min.js")
         script(src="vendor/bootstrap/#{runner.version}/js/angular.min.js")
@@ -32,4 +31,6 @@ html(lang="en", ng-app="home")
         script(src="vendor/bootstrap/#{runner.version}/js/bootstrap.min.js")
 
         script(src="home/static/#{runner.version}/js/home.min.js")
+        script(src="home/static/#{runner.version}/js/application.min.js")
         script(src="home/static/#{runner.version}/templates/templates.min.js")
+

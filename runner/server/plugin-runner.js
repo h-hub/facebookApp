@@ -18,9 +18,11 @@ module.exports = (function() {
 
         FileSystem.readdir(pluginsFolderPath, function(err, folders) {
             folders.forEach(function(folder) {
-                var packageJsonPath = pluginsFolderPath + '/' + folder + '/package.json';
-                if (FileSystem.existsSync(packageJsonPath)) {
-                    attach(app, packageJsonPath);
+                if(folder!=='api'){
+                    var packageJsonPath = pluginsFolderPath + '/' + folder + '/package.json';
+                    if (FileSystem.existsSync(packageJsonPath)) {
+                        attach(app, packageJsonPath);
+                    }
                 }
             }, this);
         });

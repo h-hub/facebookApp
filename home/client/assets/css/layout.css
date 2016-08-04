@@ -13,7 +13,17 @@
     padding: 10px 10px 0 10px;
     font-size: 26px;
     text-align: center;
+    float:left;
 }
+.top-nav .signout{
+    height:45px;
+    padding: 10px 10px 0 10px;
+    font-size: 20px;
+    text-align: center;
+    background-color: #f2f2f2;
+    float:right;
+}
+
 .top-nav .menu-item:hover{
     border-bottom-width: 5px;
     border-bottom-style: groove;
@@ -32,7 +42,14 @@
     padding: 0;
     text-align: center;
 }
-
+.home .btns{
+    float:left;
+    height:50px;
+    width:100%;
+}
+.home .btns button{
+    float:left;
+}
 .stock-item{
     max-width:800px;
     padding: 10px 10px 0 10px;

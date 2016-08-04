@@ -2,7 +2,7 @@
  * Created by UJAYAH1 on 7/30/2016.
  */
 /**
- * Created by UJAYAH1 on 7/30/2016.
+ * Created by harsha.kj89@gmail.com on 7/30/2016.
  */
 
 angular.module('home.stock-item').directive('stockItem',function($templateCache){
@@ -15,7 +15,6 @@ angular.module('home.stock-item').directive('stockItem',function($templateCache)
         template: $templateCache.get('stocks/stock-item.html'),
         controller: function ($rootScope, $scope, $interval) {
             $scope.backgroundImg = ''
-            $scope.amzStockPrice = "70.8USD";
 
             switch ($scope.stock.code) {
                 case "amz":

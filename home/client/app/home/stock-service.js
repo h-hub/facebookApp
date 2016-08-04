@@ -1,15 +1,15 @@
 /**
- * Created by UJAYAH1 on 7/31/2016.
+ * Created by harsha.kj89@gmail.com on 7/31/2016.
  */
 'use strict';
 
 angular.module('home.stock-service').service('stockService', function(http){
 
-    //see my list in course Id search
+    //get the stocks
     this.getStocks = function (success, error) {
         var requestConfig = {
             url: "/api/getStocks"
-        }
+        };
         http.get(requestConfig).then(function (response) {
             success(response);
         }).catch(function (exception) {

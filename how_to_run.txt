@@ -1,0 +1,28 @@
+STEPS
+
+runner/build file		npm install
+						bower install
+						give "5" as the answer
+						gulp release
+						gulp build
+						gulp publish
+						
+runner/server 			npm install
+
+login/build_files		npm install
+						gulp publish
+						
+login/server 			npm install
+
+home/build_files		npm install
+						gulp publish
+						
+home/server				npm install
+
+framework				npm install
+
+api/build_files			npm install
+						gulp publish
+
+api/server				npm install
+						

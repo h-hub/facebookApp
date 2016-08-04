@@ -23,7 +23,6 @@ app.config(function ($routeProvider) {
 });
 
 app.run(function (Session) {
-
     if (!Session.isAuthenticated()) {
         Session.redirectToLogin();
     }
