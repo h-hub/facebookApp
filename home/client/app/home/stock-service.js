@@ -8,7 +8,7 @@ angular.module('home.stock-service').service('stockService', function(http){
     //get the stocks
     this.getStocks = function (success, error) {
         var requestConfig = {
-            url: "/api/getStocks"
+            url: "/stickerApi/getStocks"
         };
         http.get(requestConfig).then(function (response) {
             success(response);

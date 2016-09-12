@@ -2,7 +2,7 @@
  * Created by harsha.kj89@gmail.com on 7/30/2016.
  */
 
-angular.module('home.container').controller('homeController',function($scope,$templateCache,stockService,$interval,socket){
+angular.module('home.container').controller('homeController',function($scope,$templateCache,stockService,$interval,socket,MessageLogger,Session){
 
     $scope.stocks = [];
     $scope.data = [];
@@ -13,7 +13,20 @@ angular.module('home.container').controller('homeController',function($scope,$te
         stockService.getStocks(function(stocks){
             $scope.stocks = stocks;
         },function(error){
-            $scope.message = "Unable to fetch data.";
+
+            MessageLogger.logError({
+                class: 'homeContainer',
+                method: 'getStocks',
+                message: {
+                    payload: {
+                        credentials: Session.getKey
+                    },
+                    stacktrace: error,
+                    status: 'fail'
+                }
+            });
+
+            $scope.message = "Unable to fetch data. Disconnected from the service.";
         });
     };
 

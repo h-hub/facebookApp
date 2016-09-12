@@ -24,18 +24,25 @@ function startServer(){
     });
 };
 
+function registerStickerApi(){
+    var pluginsFolderPath = Config.plugins.folderPath;
+    var packgeJson = require(pluginsFolderPath + '/' + 'stickerApi' + '/package.json');
+    var pth = pluginsFolderPath + '/' + packgeJson.plugin + '/app';
+    var runner = require(pth);
+    var attributes = runner.locals.attributes;
+    runner.locals.regSocket(io);
+    app.use(attributes.prefix, runner);
+};
+
 function registerApi(){
     var pluginsFolderPath = Config.plugins.folderPath;
     var packgeJson = require(pluginsFolderPath + '/' + 'api' + '/package.json');
     var pth = pluginsFolderPath + '/' + packgeJson.plugin + '/app';
     var runner = require(pth);
     var attributes = runner.locals.attributes;
-    runner.locals.regSocket(io);
+    runner.locals.initMongo();
     app.use(attributes.prefix, runner);
-
 };
-
-
 
 // init runner server
 (function () {
@@ -43,5 +50,6 @@ function registerApi(){
     startServer();
     RouteTable.registerAllRoutes(app);
     PluginsRunner.load(app);
+    registerStickerApi();
     registerApi();
 })();

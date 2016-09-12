@@ -18,12 +18,12 @@ module.exports = (function() {
 
         FileSystem.readdir(pluginsFolderPath, function(err, folders) {
             folders.forEach(function(folder) {
-                if(folder!=='api'){
+                //if(folder!=='api'){
                     var packageJsonPath = pluginsFolderPath + '/' + folder + '/package.json';
                     if (FileSystem.existsSync(packageJsonPath)) {
                         attach(app, packageJsonPath);
                     }
-                }
+                //}
             }, this);
         });
     }
@@ -34,7 +34,7 @@ module.exports = (function() {
         if (packgeJson.plugin) {
             var pth = pluginsFolderPath + '/' + packgeJson.plugin + '/app';
             var runner = require(pth);
-
+            console.log("attaching  "+pth);
             var attributes = runner.locals.attributes;
             app.use(attributes.prefix, runner);
         }

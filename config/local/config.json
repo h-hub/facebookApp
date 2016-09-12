@@ -25,6 +25,11 @@
         "prefix": "/home"
       },
       {
+        "name": "stickerApi",
+        "version": "1.2.8",
+        "prefix": "/stickerApi"
+      },
+      {
         "name": "api",
         "version": "1.2.8",
         "prefix": "/api"

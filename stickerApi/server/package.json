@@ -1,7 +1,7 @@
 {
-  "name": "api",
+  "name": "stickerApi",
   "version": "1.0.0",
-  "plugin": "api",
+  "plugin": "stickerApi",
   "description": "",
   "main": "app.js",
   "scripts": {
@@ -19,11 +19,5 @@
     "handlebars": "2.0.0",
     "node-cache": "3.2.1",
     "request": "2.65.0"
-  },
-  "dependencies": {
-    "bluebird": "^3.4.1",
-    "body-parser": "1.15.2",
-    "mongoose": "^4.5.9",
-    "q": "^1.4.1"
   }
 }
