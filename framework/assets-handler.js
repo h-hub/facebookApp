@@ -67,6 +67,7 @@ module.exports = (function(){
         }
 
         var filePath = Path.join(this.basePath, 'public/shared/' + path);
+        console.log(path);
 
         if(staticFileCache.indexOf(filePath) > -1){
             sendFile(reply,filePath);
@@ -75,6 +76,7 @@ module.exports = (function(){
                 if(!error){
                     staticFileCache.push(filePath);
                     sendFile(reply,filePath);
+                    console.log(filePath);
                 }else{
                     replyFileNotFound(reply);
                 }

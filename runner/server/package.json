@@ -1,5 +1,5 @@
 {
-  "name": "workflowApp",
+  "name": "facebook",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -17,6 +17,7 @@
     "handlebars": "2.0.0",
     "jade": "1.11.0",
     "request": "^2.65.0",
+    "socket.io": "^1.7.2",
     "url": "^0.11.0"
   }
 }

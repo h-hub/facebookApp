@@ -84,6 +84,10 @@ module.exports = (function () {
             AssetsHandler.staticFileHandler.call(AssetsHandler, req, res);
         });
 
+        server.use('/shared/:static/:version/:path*', function (req, res) {
+            AssetsHandler.sharedFileHandler.call(AssetsHandler, req, res);
+        });
+
         server.use('/vendor/:components/:version/:path*', function (req, res) {
             AssetsHandler.vendorFileHandler.call(AssetsHandler, req, res);
         });

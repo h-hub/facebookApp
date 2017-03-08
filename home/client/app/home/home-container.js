@@ -1,18 +1,72 @@
 /**
  * Created by harsha.kj89@gmail.com on 7/30/2016.
  */
+'use strict';
+var app = angular.module('home.container', []);
 
-angular.module('home.container').controller('homeController',function($scope,$templateCache,stockService,$interval,socket,MessageLogger,Session){
+
+
+app.factory('facebookService', function ($q) {
+    return {
+        getMyLastName: function () {
+            var deferred = $q.defer();
+            FB.api('/me', {
+                fields: 'last_name'
+            }, function (response) {
+                if (!response || response.error) {
+                    deferred.reject('Error occured');
+                } else {
+                    deferred.resolve(response);
+                }
+            });
+            return deferred.promise;
+        }
+        ,
+
+        getPageFeed: function () {
+            var deferred = $q.defer();
+            FB.api('/techblogharsha/feed', function (response) {
+                if (!response || response.error) {
+                    deferred.reject('Error occured');
+                } else {
+                    deferred.resolve(response);
+                }
+            });
+            return deferred.promise;
+        },
+
+    }
+});
+
+app.controller('homeController', function ($rootScope,$scope, $templateCache, $window, stockService, $interval, socket, MessageLogger, Session, facebookService,facebook) {
 
     $scope.stocks = [];
     $scope.data = [];
     $scope.orderByString = "change";
     $scope.btnClass = "glyphicon glyphicon-sort-by-attributes-alt";
 
-    $scope.getStocks = function(){
-        stockService.getStocks(function(stocks){
+    $scope.getFeed = function () {
+        facebookService.getPageFeed()
+            .then(function (response) {
+                console.log(response);
+            }
+            );
+    }
+
+    $scope.getStocks = function () {
+        $rootScope.$on('fb.auth.authResponseChange', function (event, response) {
+            if (response.status == 'connected') {
+                facebook.api('techblogharsha/feed').then(function (result) {
+                    $rootScope.userInfo2 = result;
+                });
+            } else {
+                $rootScope.userInfo = null;
+            }
+        });
+
+        stockService.getStocks(function (stocks) {
             $scope.stocks = stocks;
-        },function(error){
+        }, function (error) {
 
             MessageLogger.logError({
                 class: 'homeContainer',
@@ -30,11 +84,11 @@ angular.module('home.container').controller('homeController',function($scope,$te
         });
     };
 
-    $scope.toggleOrder = function() {
-        if($scope.orderByString==='change'){
+    $scope.toggleOrder = function () {
+        if ($scope.orderByString === 'change') {
             $scope.orderByString = "-change";
             $scope.btnClass = "glyphicon glyphicon-sort-by-attributes-alt";
-        }else{
+        } else {
             $scope.orderByString = "change";
             $scope.btnClass = "glyphicon glyphicon-sort-by-attributes";
         }

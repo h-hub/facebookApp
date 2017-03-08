@@ -1,5 +1,6 @@
 /**
  * Created by harsha.kj89@gmail.com on 7/28/2016.
+ * login app.js
  */
 var express = require('express');
 var path = require('path');
@@ -60,6 +61,13 @@ loginApp.get('/', function(req, res, next){
         },
         runner: {
             version: Config.package.version
+        },
+        facebook : {
+            appId: Config.fb.appId,
+            status: Config.fb.status, 
+            cookie: Config.fb.cookie, 
+            xfbml: Config.fb.xfbml,
+            version: Config.fb.version
         }
     });
 });

@@ -1,0 +1,54 @@
+<div>
+  <div class="top-nav" role="navigation">
+    <div class="container-fluid no-gutter">
+      <div class="nav-bar">
+        <div class="nav-left" ng-click="redirectToHome()"><span>My Courses</span>&nbsp;<span class="title-part">from Pearson</span></div>
+        <div class="nav-right">
+          <ul class="no-gutter">
+            <li id="userNameText" class="seperater" title="{{::displayText}}" ng-hide="provider"><a href="#" role="button" aria-label="{{::displayText}}" ng-click="showAccountPopover($event)" data-placement="bottom" data-toggle="popover" data-container="#account-popover-content" data-html="true"><span title="{{::displayText}}" class="nav-text" ng-bind="::displayText"></span><i class="fa fa-user fa-icon" title="{{::displayText}}" aria-hidden="true"></i></a>
+            </li>
+            <li class="seperater" title="Sign out to keep your account secure" ng-hide="provider" ng-click="userSignOut($event)"><a href="#" role="button" aria-label="Sign Out"><span class="nav-text">Sign Out</span><i class="fa fa-power-off fa-icon" aria-hidden="true"></i></a>
+            </li>
+            <li class="btn-group seperater" title="FAQs and Support">
+              <a data-toggle="dropdown" href="#" ng-click="selectHelp($event)">
+                <span class="nav-text">Help</span><i class="fa fa-question-circle fa-icon" aria-hidden="true"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right help-dropdown" role="menu" aria-haspopup="true" aria-expanded="false">
+                <li ng-repeat="option in helpLinks" ng-enter="selectHelpLink($event, option)" ng-click="selectHelpLink($event, option)">
+                  <a href="#" aria-label="{{ ::option.optionName }}" ng-click="preventHelpLink($event)" ng-bind="::option.optionName"></a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div id="account-popover" class="hide">
+          <div class="signout-popover">
+            <ul class="no-gutter">
+              <li><b>{{ ::userFullName }}</b></li>
+              <li ng-bind="::userEmail"></li>
+              <li class="account-link"><a href="#" role="button" aria-label="Account" ng-click="openAccountDialog($event)">Account</a></li>
+              <li class="line-seperater"></li>
+              <li><a href="#" class="btn btn-primary btn-sm sign-out" role="button" aria-label="Sign Out" ng-click="userSignOut($event)">Sign Out</a></li>
+            </ul>
+          </div>
+        </div>
+        <div id="account-popover-content"></div>
+      </div>
+    </div>
+  </div>
+  <div id="account-modal-dialog" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog account-modal-box">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-close" aria-hidden="true"></i></button>
+          <h4 class="modal-title">Account</h4>
+        </div>
+        <div class="modal-body">
+          <iframe id="account-profile" tabindex="-1" scrolling="yes" seamless="" class="econtent" ng-src="{{userAccountContent}}" width="100%" height="100%"></iframe>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

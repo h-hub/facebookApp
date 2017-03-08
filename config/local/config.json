@@ -36,6 +36,13 @@
       }
     ]
   },
+  "fb" : {
+      "appId": "556097657767976",
+      "status": true, 
+      "cookie": true, 
+      "xfbml": true,
+      "version": "v2.4"
+  },
   "logging": {
     "product": "MMND",
     "application": "He Portal",

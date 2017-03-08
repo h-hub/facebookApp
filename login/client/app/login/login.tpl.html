@@ -1,25 +1,18 @@
-<div class="login">
+<div class="login" id="fb-root" ng-controller="loginController" ng-init="init()">
     <div class="top-line col-md-12"></div>
 
     <div class="table">
         <div class="table-cell">
             <div class="title"></div>
             <div class="login-box">
-                <h3>Sign In</h3>
-                <form>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" ng-model="user.email" required="true" ng-pattern="emailFormat">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="user.password" required="true">
-                    </div>
-                    <button type="submit" class="btn btn-default" ng-click="submit()">Submit</button><br>
-                    <span class="warning">{{message}}</span>
-                </form>
+                <!--<h3>Facebook Login Example</h3>-->
+                <button class="btn btn-default" ng-click="loginPopup()">Click to Login</button>
+                <div>{{status}}</div>
+                <!--<div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>-->
             </div>
         </div>
     </div>
+
+    
 
 </div>

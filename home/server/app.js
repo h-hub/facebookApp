@@ -1,5 +1,6 @@
 /**
  * Created by UJAYAH1 on 7/28/2016.
+ * home app.js
  */
 var express = require('express');
 
@@ -66,6 +67,13 @@ homeApp.get('/', function(req, res, next){
         },
         runner: {
             version: Config.package.version
+        },
+        facebook : {
+            appId: Config.fb.appId,
+            status: Config.fb.status, 
+            cookie: Config.fb.cookie, 
+            xfbml: Config.fb.xfbml,
+            version: Config.fb.version
         }
     });
 });

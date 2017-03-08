@@ -92,7 +92,7 @@ gulp.task('bower',function(){
 });
 
 gulp.task('copy-resources',function(){
-    gulp.src(srcdir + 'index.html')
+    gulp.src(srcdir + 'index.jade')
         .pipe(chmod(666))
         .pipe(gulp.dest(publishviewdir));
 
